@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/style.css" rel="stylesheet">
+    <meta http-equiv="refresh" content="20">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <% if (locals.full_date&&locals.weekday&&locals.full_time) { %>
+                <p><%= full_date %></p>
+                <p><%= weekday %></p>
+                <p><%= full_time %></p>
+            <% } %>
+        </div>
+        <form action="/" method="post" class="sub-container">
+            <input class="input-text" placeholder="Enter the Country" name="country" type="text"/>
+            <input placeholder="Submit" type="submit" value="Submit" class="btn">
+        </form>
+        <% if (locals.wt_value&&locals.w_value&&locals.m_value&&locals.url) { %>
+            <div class="mid-container">
+                <img src="<%=url%>" alt="Image">
+                <h2><%= wt_value[2] %></h2>
+                <h2><%= Math.floor(m_value[0]-273.15) %><sup><sup>o</sup>C</h2>
+                <div class="">
+                    <ul>
+                        <li>Humidity: <%= m_value[5] %>%</li>
+                        <li>Wind Speed: <%=w_value[0]%> km/h</li>
+                        <lo> Pressure <%= m_value[4] %> mb</lo>
+                    </ul>
+                </div>
+            </div>
+        <% } else{%>
+        <% } %>
+    </div>
+</body>
+</html>
